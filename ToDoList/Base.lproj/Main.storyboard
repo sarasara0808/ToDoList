@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WnP-RS-etx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jfg-CG-Tnw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="49" id="Ap5-0P-6Ow">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="49" id="Ap5-0P-6Ow" customClass="CustomCell" customModule="ToDoList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="49"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ap5-0P-6Ow" id="v1f-8l-qXE">
@@ -28,23 +28,27 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="BYZ-38-t0r" id="ThV-2l-X65"/>
+                            <outlet property="delegate" destination="BYZ-38-t0r" id="a4o-rL-I0X"/>
+                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="sQo-4f-VYC">
-                        <barButtonItem key="rightBarButtonItem" title="Item" style="done" id="ELE-U6-alH">
+                        <barButtonItem key="rightBarButtonItem" tag="-3" title="＋" style="done" id="ELE-U6-alH">
                             <connections>
                                 <segue destination="3Lp-2U-epa" kind="show" id="Adg-KY-Gsc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="table" destination="qie-RD-Bgt" id="WrJ-bB-v4L"/>
+                        <outlet property="table" destination="qie-RD-Bgt" id="KbW-ck-YU1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="768.79999999999995" y="133.5832083958021"/>
         </scene>
-        <!--Title-->
+        <!--To Do List View Controller-->
         <scene sceneID="uuD-WJ-Tx9">
             <objects>
                 <viewController id="3Lp-2U-epa" customClass="ToDoListViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
@@ -53,16 +57,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="28V-2k-rBQ">
-                                <rect key="frame" x="139" y="168" width="97" height="30"/>
+                                <rect key="frame" x="113" y="175" width="148" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nux-aE-QjE">
-                                <rect key="frame" x="164" y="353" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nux-aE-QjE">
+                                <rect key="frame" x="151" y="383" width="72" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Button" image="heart.png"/>
                                 <connections>
                                     <action selector="ToDoSaveButton:" destination="3Lp-2U-epa" eventType="touchUpInside" id="lzs-xB-eQh"/>
                                 </connections>
@@ -71,7 +75,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Dxc-ZO-cpD"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="JXY-4e-bBP"/>
+                    <navigationItem key="navigationItem" id="JXY-4e-bBP"/>
                     <connections>
                         <outlet property="ToDoTextField" destination="28V-2k-rBQ" id="Ilo-hK-5Rz"/>
                     </connections>
@@ -79,6 +83,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="srs-E8-kGn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1584.8" y="133.5832083958021"/>
+        </scene>
+        <!--Start View Controller-->
+        <scene sceneID="H8m-Kb-CDa">
+            <objects>
+                <viewController id="Jfg-CG-Tnw" customClass="StartViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lYK-hT-hQo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hitujipng.png" translatesAutoresizingMaskIntoConstraints="NO" id="baf-Yt-0GU">
+                                <rect key="frame" x="63" y="119" width="248" height="249"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XWd-jH-tXN">
+                                <rect key="frame" x="35" y="468" width="304" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="START" image="start.png"/>
+                                <connections>
+                                    <segue destination="WnP-RS-etx" kind="presentation" id="eyg-9J-goq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="mfW-CX-hvg"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gnS-6I-1WO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1066.4000000000001" y="133.5832083958021"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GWw-Bp-7UT">
@@ -99,4 +132,9 @@
             <point key="canvasLocation" x="-170.40000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="heart.png" width="142" height="130"/>
+        <image name="hitujipng.png" width="822" height="853"/>
+        <image name="start.png" width="522" height="87"/>
+    </resources>
 </document>

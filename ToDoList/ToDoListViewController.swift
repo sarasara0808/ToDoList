@@ -20,9 +20,14 @@ class ToDoListViewController: UIViewController {
   
   override func viewDidLoad() {
         super.viewDidLoad()
-    
-        // Do any additional setup after loading the view.
+    self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 1, green: 0.6431372549, blue: 0.7058823529, alpha: 1)
+    self.navigationController?.navigationBar.tintColor = UIColor.white
+    self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+  
     }
+  
+  
+  
   
   override func viewWillAppear(_ animated: Bool) {
     ToDoListnakami = saveData.object(forKey: "TodoList") as! [String]
