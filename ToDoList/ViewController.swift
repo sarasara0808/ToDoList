@@ -91,6 +91,7 @@ func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> 
     let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for :indexPath) as! CustomTableViewCell
     print(ToDoArray)
 
+    
     //セルにToDoArrayの言葉を表示する
     cell.textbox.text = ToDoArray[indexPath.row]
     

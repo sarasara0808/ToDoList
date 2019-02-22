@@ -13,6 +13,7 @@ class CustomTableViewCell: UITableViewCell {
   @IBOutlet var checkbox: UIImageView!
   @IBOutlet var textbox: UILabel!
   
+  
   override func awakeFromNib() {
     super.awakeFromNib()
   }
